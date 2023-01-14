@@ -1,0 +1,28 @@
+﻿@model List<EntityLayer.Entities.User>
+@{
+    ViewBag.Title = "UserList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kullanıcılar</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>İaim Soyisim</th>
+        <th>Email</th>
+        <th>Kullanıcı İsmi</th>
+        <th>Şifre</th>
+        <th>Sil</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name @item.SurName</td>
+            <td>@item.Email</td>
+            <td>@item.UserName</td>
+            <td>@item.Password</td>
+            <td>@Html.ActionLink("Sil", "Delete", new { item.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istediğinize emin misiniz?')" })</td>
+        </tr>
+    }
+</table>

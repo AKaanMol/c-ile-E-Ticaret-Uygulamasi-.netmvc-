@@ -1,0 +1,23 @@
+﻿@model List<EntityLayer.Entities.Product>
+@{
+    ViewBag.Title = "CriticalStock";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Kategori Bilgisi</th>
+        <th>Ürün Bilgisi</th>
+        <th>Stok Sayısı</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr style="background-color:burlywood">
+            <td>@item.Category.Name</td>
+            <td>@item.Name</td>
+            <td>@item.Stock</td>
+        </tr>
+
+    }
+</table>
+
